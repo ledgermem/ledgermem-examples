@@ -1,0 +1,19 @@
+{
+  "name": "@ledgermem/examples",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cookbook of runnable examples that showcase LedgerMem in real apps.",
+  "workspaces": [
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ledgermem/ledgermem-examples.git"
+  }
+}

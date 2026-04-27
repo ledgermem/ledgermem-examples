@@ -1,0 +1,25 @@
+{
+  "name": "@examples/slack-memory-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Slack bot with /remember and /recall slash commands backed by LedgerMem.",
+  "type": "module",
+  "scripts": {
+    "start": "tsx index.ts",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ledgermem/memory": "^0.1.0",
+    "@slack/bolt": "^4.1.1",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

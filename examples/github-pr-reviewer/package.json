@@ -1,0 +1,27 @@
+{
+  "name": "@examples/github-pr-reviewer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CLI that reviews a GitHub PR using prior review patterns recalled from LedgerMem.",
+  "type": "module",
+  "scripts": {
+    "review": "tsx review.ts",
+    "test": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ledgermem/memory": "^0.1.0",
+    "@octokit/rest": "^21.0.2",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

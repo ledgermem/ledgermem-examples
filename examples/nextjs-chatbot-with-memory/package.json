@@ -1,0 +1,33 @@
+{
+  "name": "@examples/nextjs-chatbot-with-memory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Next.js 15 streaming chatbot that remembers the user across turns via LedgerMem.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^1.0.10",
+    "@ai-sdk/react": "^1.0.10",
+    "@ledgermem/memory": "^0.1.0",
+    "@ledgermem/vercel-ai": "^0.1.0",
+    "ai": "^4.0.20",
+    "next": "^15.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
