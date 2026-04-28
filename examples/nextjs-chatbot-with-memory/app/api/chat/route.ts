@@ -87,6 +87,13 @@ async function resolveUserId(req: Request): Promise<string | null> {
   if (!authHeader?.startsWith("Bearer ")) return null;
   const token = authHeader.slice("Bearer ".length).trim();
   if (!token) return null;
-  // For demo purposes we treat the token itself as the user identifier.
-  return `user_${token.slice(0, 16)}`;
+  // Demo-only: hash the full token so two distinct tokens never collide on a
+  // truncated prefix (the previous `token.slice(0, 16)` collapsed every token
+  // sharing a 16-char prefix into the same userId — a memory cross-tenant
+  // bug waiting to happen if anyone copy-pasted this into production).
+  const hash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(token));
+  const hex = Array.from(new Uint8Array(hash))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  return `user_${hex.slice(0, 32)}`;
 }

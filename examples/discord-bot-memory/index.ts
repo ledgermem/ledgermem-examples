@@ -81,10 +81,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.error("interaction error:", message);
+    // Don't echo the raw error to the channel — it can include upstream
+    // URLs, API tokens, or stack frames. Surface a generic notice and rely
+    // on the bot host's logs for diagnosis.
+    const userMessage = "Sorry, something went wrong handling that command.";
     if (interaction.deferred || interaction.replied) {
-      await interaction.editReply(`Error: ${message}`);
+      await interaction.editReply(userMessage);
     } else {
-      await interaction.reply({ content: `Error: ${message}`, flags: MessageFlags.Ephemeral });
+      await interaction.reply({ content: userMessage, flags: MessageFlags.Ephemeral });
     }
   }
 });
