@@ -21,12 +21,19 @@ function getMemory(): LedgerMem {
 
 interface ChatBody {
   messages: CoreMessage[];
-  userId?: string;
 }
 
 export async function POST(req: Request): Promise<Response> {
   const body = (await req.json()) as ChatBody;
-  const userId = body.userId ?? "anonymous";
+  // Never trust userId from the client body — that lets any caller read or
+  // write another user's memory. Resolve it from the auth header instead.
+  const userId = await resolveUserId(req);
+  if (!userId) {
+    return new Response(JSON.stringify({ error: "unauthorized" }), {
+      status: 401,
+      headers: { "content-type": "application/json" },
+    });
+  }
 
   const memory = getMemory();
   const lastUserMessage = [...body.messages].reverse().find((m) => m.role === "user");
@@ -70,4 +77,16 @@ export async function POST(req: Request): Promise<Response> {
   });
 
   return result.toDataStreamResponse();
+}
+
+async function resolveUserId(req: Request): Promise<string | null> {
+  // Replace this with your real auth provider (NextAuth, Clerk, etc.). The
+  // important rule is: derive the userId from a verified session/token, never
+  // from the request body.
+  const authHeader = req.headers.get("authorization");
+  if (!authHeader?.startsWith("Bearer ")) return null;
+  const token = authHeader.slice("Bearer ".length).trim();
+  if (!token) return null;
+  // For demo purposes we treat the token itself as the user identifier.
+  return `user_${token.slice(0, 16)}`;
 }

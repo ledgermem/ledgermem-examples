@@ -95,8 +95,11 @@ export function createApp(memory: MemoryClient): express.Express {
       res.status(400).json({ ok: false, error: "validation_error", issues: err.issues });
       return;
     }
+    // Never echo internal error messages to the client — they can leak stack
+    // frames, library internals, or upstream API responses. Log instead.
     const message = err instanceof Error ? err.message : String(err);
-    res.status(500).json({ ok: false, error: message });
+    console.error("unhandled error in customer-support-rag", message);
+    res.status(500).json({ ok: false, error: "internal_error" });
   });
 
   return app;
