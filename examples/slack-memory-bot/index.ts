@@ -73,9 +73,13 @@ app.command("/recall", async ({ command, ack, respond }) => {
     return `${i + 1}. ${content}${score}`;
   });
 
+  // Slack's mrkdwn parses `<!channel>` and angle brackets as control
+  // sequences — escape `<`, `>`, `&` in the user-provided query so a recall
+  // search for "<!channel>" can't @-mention the whole channel.
+  const safeQuery = query.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   await respond({
     response_type: "ephemeral",
-    text: `*Top matches for "${query}":*\n${lines.join("\n")}`,
+    text: `*Top matches for "${safeQuery}":*\n${lines.join("\n")}`,
   });
 });
 
