@@ -1,6 +1,6 @@
 import express, { type Request, type Response, type NextFunction } from "express";
 import { z } from "zod";
-import { LedgerMem } from "@ledgermem/memory";
+import { Mnemo } from "@getmnemo/memory";
 
 export interface MemoryClient {
   add(content: string, opts?: { metadata?: Record<string, unknown> }): Promise<unknown>;
@@ -105,15 +105,15 @@ export function createApp(memory: MemoryClient): express.Express {
   return app;
 }
 
-export function buildMemory(): LedgerMem {
-  const apiKey = process.env.LEDGERMEM_API_KEY;
-  const workspaceId = process.env.LEDGERMEM_WORKSPACE_ID;
+export function buildMemory(): Mnemo {
+  const apiKey = process.env.GETMNEMO_API_KEY;
+  const workspaceId = process.env.GETMNEMO_WORKSPACE_ID;
   if (!apiKey || !workspaceId) {
-    throw new Error("LEDGERMEM_API_KEY and LEDGERMEM_WORKSPACE_ID are required");
+    throw new Error("GETMNEMO_API_KEY and GETMNEMO_WORKSPACE_ID are required");
   }
-  return new LedgerMem({
+  return new Mnemo({
     apiKey,
     workspaceId,
-    apiUrl: process.env.LEDGERMEM_API_URL ?? "https://api.proofly.dev",
+    apiUrl: process.env.GETMNEMO_API_URL ?? "https://api.getmnemo.xyz",
   });
 }

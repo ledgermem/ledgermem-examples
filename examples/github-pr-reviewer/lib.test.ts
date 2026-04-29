@@ -3,17 +3,17 @@ import { asHits, buildReviewBody, buildSearchQuery, parsePrUrl } from "./lib.js"
 
 describe("parsePrUrl", () => {
   it("parses a standard PR URL", () => {
-    expect(parsePrUrl("https://github.com/ledgermem/ledgermem-cli/pull/42")).toEqual({
-      owner: "ledgermem",
-      repo: "ledgermem-cli",
+    expect(parsePrUrl("https://github.com/getmnemo/getmnemo-cli/pull/42")).toEqual({
+      owner: "getmnemo",
+      repo: "getmnemo-cli",
       number: 42,
     });
   });
 
   it("parses a PR URL with trailing files segment", () => {
-    expect(parsePrUrl("https://github.com/ledgermem/ledgermem-cli/pull/42/files")).toEqual({
-      owner: "ledgermem",
-      repo: "ledgermem-cli",
+    expect(parsePrUrl("https://github.com/getmnemo/getmnemo-cli/pull/42/files")).toEqual({
+      owner: "getmnemo",
+      repo: "getmnemo-cli",
       number: 42,
     });
   });

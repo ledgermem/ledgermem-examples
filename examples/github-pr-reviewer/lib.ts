@@ -69,7 +69,7 @@ function escapeInline(text: string): string {
 export function buildReviewBody(pr: PrSummary, hits: MemoryHit[]): string {
   const header = `**Memory-assisted review for _${escapeInline(pr.title)}_**`;
   if (hits.length === 0) {
-    return `${header}\n\nNo prior review patterns found in LedgerMem for this kind of change.`;
+    return `${header}\n\nNo prior review patterns found in Mnemo for this kind of change.`;
   }
   const bullets = hits
     .map((h, i) => {

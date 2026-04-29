@@ -10,7 +10,7 @@ function requireEnv(name: string): string {
 const commands = [
   new SlashCommandBuilder()
     .setName("remember")
-    .setDescription("Save a fact to LedgerMem")
+    .setDescription("Save a fact to Mnemo")
     .addStringOption((opt) =>
       opt.setName("text").setDescription("What should I remember?").setRequired(true),
     )

@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
 export const metadata = {
-  title: "LedgerMem Chatbot",
-  description: "A chatbot with persistent memory powered by LedgerMem.",
+  title: "Mnemo Chatbot",
+  description: "A chatbot with persistent memory powered by Mnemo.",
 };
 
 export function RootLayout({ children }: { children: ReactNode }) {

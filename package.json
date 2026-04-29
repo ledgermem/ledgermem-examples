@@ -1,8 +1,8 @@
 {
-  "name": "@ledgermem/examples",
+  "name": "@getmnemo/examples",
   "version": "0.1.0",
   "private": true,
-  "description": "Cookbook of runnable examples that showcase LedgerMem in real apps.",
+  "description": "Cookbook of runnable examples that showcase Mnemo in real apps.",
   "workspaces": [
     "examples/*"
   ],
@@ -14,6 +14,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ledgermem/ledgermem-examples.git"
+    "url": "git+https://github.com/getmnemo/getmnemo-examples.git"
   }
 }

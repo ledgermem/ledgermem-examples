@@ -1,6 +1,6 @@
 import "dotenv/config";
 import pkg from "@slack/bolt";
-import { LedgerMem } from "@ledgermem/memory";
+import { Mnemo } from "@getmnemo/memory";
 
 const { App, LogLevel } = pkg;
 
@@ -10,10 +10,10 @@ function requireEnv(name: string): string {
   return v;
 }
 
-const memory = new LedgerMem({
-  apiKey: requireEnv("LEDGERMEM_API_KEY"),
-  workspaceId: requireEnv("LEDGERMEM_WORKSPACE_ID"),
-  apiUrl: process.env.LEDGERMEM_API_URL ?? "https://api.proofly.dev",
+const memory = new Mnemo({
+  apiKey: requireEnv("GETMNEMO_API_KEY"),
+  workspaceId: requireEnv("GETMNEMO_WORKSPACE_ID"),
+  apiUrl: process.env.GETMNEMO_API_URL ?? "https://api.getmnemo.xyz",
 });
 
 const app = new App({

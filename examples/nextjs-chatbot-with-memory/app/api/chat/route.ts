@@ -1,21 +1,21 @@
 import { openai } from "@ai-sdk/openai";
 import { streamText, type CoreMessage } from "ai";
-import { LedgerMem } from "@ledgermem/memory";
-import { ledgerMemTools } from "@ledgermem/vercel-ai";
+import { Mnemo } from "@getmnemo/memory";
+import { ledgerMemTools } from "@getmnemo/vercel-ai";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-function getMemory(): LedgerMem {
-  const apiKey = process.env.LEDGERMEM_API_KEY;
-  const workspaceId = process.env.LEDGERMEM_WORKSPACE_ID;
+function getMemory(): Mnemo {
+  const apiKey = process.env.GETMNEMO_API_KEY;
+  const workspaceId = process.env.GETMNEMO_WORKSPACE_ID;
   if (!apiKey || !workspaceId) {
-    throw new Error("LEDGERMEM_API_KEY and LEDGERMEM_WORKSPACE_ID are required");
+    throw new Error("GETMNEMO_API_KEY and GETMNEMO_WORKSPACE_ID are required");
   }
-  return new LedgerMem({
+  return new Mnemo({
     apiKey,
     workspaceId,
-    apiUrl: process.env.LEDGERMEM_API_URL ?? "https://api.proofly.dev",
+    apiUrl: process.env.GETMNEMO_API_URL ?? "https://api.getmnemo.xyz",
   });
 }
 

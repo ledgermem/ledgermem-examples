@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { Octokit } from "@octokit/rest";
-import { LedgerMem } from "@ledgermem/memory";
+import { Mnemo } from "@getmnemo/memory";
 import { asHits, buildReviewBody, buildSearchQuery, parsePrUrl, type PrSummary } from "./lib.js";
 
 function requireEnv(name: string): string {
@@ -20,10 +20,10 @@ async function main(): Promise<void> {
   const { owner, repo, number } = parsePrUrl(url);
 
   const octokit = new Octokit({ auth: requireEnv("GITHUB_TOKEN") });
-  const memory = new LedgerMem({
-    apiKey: requireEnv("LEDGERMEM_API_KEY"),
-    workspaceId: requireEnv("LEDGERMEM_WORKSPACE_ID"),
-    apiUrl: process.env.LEDGERMEM_API_URL ?? "https://api.proofly.dev",
+  const memory = new Mnemo({
+    apiKey: requireEnv("GETMNEMO_API_KEY"),
+    workspaceId: requireEnv("GETMNEMO_WORKSPACE_ID"),
+    apiUrl: process.env.GETMNEMO_API_URL ?? "https://api.getmnemo.xyz",
   });
 
   console.log(`→ fetching ${owner}/${repo}#${number}…`);

@@ -2,7 +2,7 @@
   "name": "@examples/customer-support-rag",
   "version": "0.1.0",
   "private": true,
-  "description": "Express API: POST /ingest loads FAQs, POST /ask runs RAG over LedgerMem.",
+  "description": "Express API: POST /ingest loads FAQs, POST /ask runs RAG over Mnemo.",
   "type": "module",
   "scripts": {
     "start": "tsx index.ts",
@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@ledgermem/memory": "^0.1.0",
+    "@getmnemo/memory": "^0.1.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "zod": "^3.24.1"

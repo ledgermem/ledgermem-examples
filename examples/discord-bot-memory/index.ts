@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { Client, Events, GatewayIntentBits, MessageFlags, type ChatInputCommandInteraction } from "discord.js";
-import { LedgerMem } from "@ledgermem/memory";
+import { Mnemo } from "@getmnemo/memory";
 
 function requireEnv(name: string): string {
   const v = process.env[name];
@@ -8,10 +8,10 @@ function requireEnv(name: string): string {
   return v;
 }
 
-const memory = new LedgerMem({
-  apiKey: requireEnv("LEDGERMEM_API_KEY"),
-  workspaceId: requireEnv("LEDGERMEM_WORKSPACE_ID"),
-  apiUrl: process.env.LEDGERMEM_API_URL ?? "https://api.proofly.dev",
+const memory = new Mnemo({
+  apiKey: requireEnv("GETMNEMO_API_KEY"),
+  workspaceId: requireEnv("GETMNEMO_WORKSPACE_ID"),
+  apiUrl: process.env.GETMNEMO_API_URL ?? "https://api.getmnemo.xyz",
 });
 
 const client = new Client({

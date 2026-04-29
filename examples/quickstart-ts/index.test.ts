@@ -11,9 +11,9 @@ describe("quickstart-ts", () => {
     expect(seedMatches.length).toBeGreaterThanOrEqual(3);
   });
 
-  it("requires LEDGERMEM_API_KEY at startup", () => {
+  it("requires GETMNEMO_API_KEY at startup", () => {
     const src = readFileSync(join(import.meta.dirname, "index.ts"), "utf8");
-    expect(src).toMatch(/LEDGERMEM_API_KEY/);
-    expect(src).toMatch(/LEDGERMEM_WORKSPACE_ID/);
+    expect(src).toMatch(/GETMNEMO_API_KEY/);
+    expect(src).toMatch(/GETMNEMO_WORKSPACE_ID/);
   });
 });

@@ -2,7 +2,7 @@
   "name": "@examples/github-pr-reviewer",
   "version": "0.1.0",
   "private": true,
-  "description": "CLI that reviews a GitHub PR using prior review patterns recalled from LedgerMem.",
+  "description": "CLI that reviews a GitHub PR using prior review patterns recalled from Mnemo.",
   "type": "module",
   "scripts": {
     "review": "tsx review.ts",
@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@ledgermem/memory": "^0.1.0",
+    "@getmnemo/memory": "^0.1.0",
     "@octokit/rest": "^21.0.2",
     "dotenv": "^16.4.7"
   },

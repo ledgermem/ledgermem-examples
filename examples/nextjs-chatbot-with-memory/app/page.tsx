@@ -15,7 +15,7 @@ export function ChatPage() {
         padding: "32px 16px 120px",
       }}
     >
-      <h1 style={{ fontSize: 24, marginBottom: 4 }}>LedgerMem Chatbot</h1>
+      <h1 style={{ fontSize: 24, marginBottom: 4 }}>Mnemo Chatbot</h1>
       <p style={{ color: "#9ca3af", marginTop: 0 }}>
         Tell me about yourself. I will remember it across sessions.
       </p>
