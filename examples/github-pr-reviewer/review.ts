@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { Octokit } from "@octokit/rest";
-import { Mnemo } from "@getmnemo/memory";
+import { Mnemo } from "@mnemo/memory";
 import { asHits, buildReviewBody, buildSearchQuery, parsePrUrl, type PrSummary } from "./lib.js";
 
 function requireEnv(name: string): string {

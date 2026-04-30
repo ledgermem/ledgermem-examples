@@ -1,5 +1,5 @@
 {
-  "name": "@getmnemo/examples",
+  "name": "@mnemo/examples",
   "version": "0.1.0",
   "private": true,
   "description": "Cookbook of runnable examples that showcase Mnemo in real apps.",

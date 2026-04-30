@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { Client, Events, GatewayIntentBits, MessageFlags, type ChatInputCommandInteraction } from "discord.js";
-import { Mnemo } from "@getmnemo/memory";
+import { Mnemo } from "@mnemo/memory";
 
 function requireEnv(name: string): string {
   const v = process.env[name];

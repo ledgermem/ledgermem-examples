@@ -1,6 +1,6 @@
 import "dotenv/config";
 import pkg from "@slack/bolt";
-import { Mnemo } from "@getmnemo/memory";
+import { Mnemo } from "@mnemo/memory";
 
 const { App, LogLevel } = pkg;
 

@@ -1,7 +1,7 @@
 import { openai } from "@ai-sdk/openai";
 import { streamText, type CoreMessage } from "ai";
-import { Mnemo } from "@getmnemo/memory";
-import { ledgerMemTools } from "@getmnemo/vercel-ai";
+import { Mnemo } from "@mnemo/memory";
+import { ledgerMemTools } from "@mnemo/vercel-ai";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;

@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@getmnemo/memory": "^0.1.0",
+    "@mnemo/memory": "^0.1.0",
     "dotenv": "^16.4.7"
   },
   "devDependencies": {

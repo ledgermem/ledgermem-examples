@@ -12,8 +12,8 @@
   "dependencies": {
     "@ai-sdk/openai": "^1.0.10",
     "@ai-sdk/react": "^1.0.10",
-    "@getmnemo/memory": "^0.1.0",
-    "@getmnemo/vercel-ai": "^0.1.0",
+    "@mnemo/memory": "^0.1.0",
+    "@mnemo/vercel-ai": "^0.1.0",
     "ai": "^4.0.20",
     "next": "^15.1.3",
     "react": "^19.0.0",

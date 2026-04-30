@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { Mnemo } from "@getmnemo/memory";
+import { Mnemo } from "@mnemo/memory";
 
 function requireEnv(name: string): string {
   const v = process.env[name];
